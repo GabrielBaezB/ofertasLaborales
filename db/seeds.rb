@@ -3,8 +3,8 @@ require 'open-uri'
 
 # Crea un usuario administrador
 admin_user = User.create(
-  name: 'Admin User',
-  email: 'admin@mail.com',
+  name: 'Esteban Reyes',
+  email: 'ereyes@email.com',
   password: '123456',
   role: 'admin'
 )
