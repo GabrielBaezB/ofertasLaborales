@@ -44,11 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_160334) do
 
   create_table "job_applications", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "job_offers_id", null: false
+    t.bigint "job_offer_id", null: false
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["job_offers_id"], name: "index_job_applications_on_job_offers_id"
+    t.index ["job_offer_id"], name: "index_job_applications_on_job_offer_id"
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_160334) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "job_applications", "job_offers", column: "job_offers_id"
+  add_foreign_key "job_applications", "job_offers"
   add_foreign_key "job_applications", "users"
   add_foreign_key "job_offers", "users"
 end

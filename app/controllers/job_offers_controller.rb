@@ -1,6 +1,6 @@
 class JobOffersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_job_offer, only: %i[show edit update destroy show]
+  before_action :set_job_offer, only: %i[show edit update destroy]
   before_action :authenticate_admin!, only: %i[new create edit update destroy]
 
   def authenticate_admin!
@@ -22,7 +22,6 @@ class JobOffersController < ApplicationController
   # GET /job_offers/1 or /job_offers/1.json
   def show
     @job_application = JobApplication.new
-    @job_applications = @job_offers.job_applications
   end
 
   # GET /job_offers/new
@@ -34,9 +33,8 @@ class JobOffersController < ApplicationController
   def edit
   end
 
-  #POST /job_offers or /job_offers.json
+  # POST /job_offers or /job_offers.json
   def create
-    
     @job_offer = JobOffer.new(job_offer_params)
     @job_offer.user = current_user
 
@@ -75,13 +73,14 @@ class JobOffersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job_offer
-      @job_offer = JobOffer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def job_offer_params
-      params.require(:job_offer).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job_offer
+    @job_offer = JobOffer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def job_offer_params
+    params.require(:job_offer).permit(:title, :description)
+  end
 end

@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }
-  resources :job_offers
-
-  devise_scope :user do
-    get 'create_user', to: 'registrations#new'
-    post 'create_user', to: 'registrations#create'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  resources :job_offers do
+    resources :job_applications, only: %i[new create]
   end
 
-  root "job_offers#index"
+  resources :job_applications do
+    member do
+      get 'show_user', to: 'job_applications#show_user', as: 'show_user'
+    end
+  end
+
+  # Ruta donde cada User podra ver sus postulaciones
+  get 'job_applications', to: 'job_applications#index', as: 'job_applications_index'
+
+  root 'home#index'
 end

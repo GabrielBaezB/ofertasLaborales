@@ -9,7 +9,7 @@
       <div class="col-md-4 mb-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><%= job_application.job.job_title %></h5>
+            <h5 class="card-title"><%= job_application.job_offer.title %></h5>
             <p class="card-text"><%= job_application.message %></p>
             <%= link_to 'Ver Oferta', job_path(job_application.job_offer), class: 'btn btn-outline-primary' %>
           </div>

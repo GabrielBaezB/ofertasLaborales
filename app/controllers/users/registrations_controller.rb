@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     return if current_user && current_user.role == 'admin'
 
     flash[:error] = 'Only admins can do that'
-    redirect_to jobs_path
+    redirect_to job_offers_path
   end
 
   def sign_up(_resource_name, _resource)

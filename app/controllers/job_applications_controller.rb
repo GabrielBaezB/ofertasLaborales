@@ -35,7 +35,7 @@ class JobApplicationsController < ApplicationController
   private
 
   def set_job_offer
-    @job_offer = JobOffer.find(params[:job_offers_id])
+    @job_offer = JobOffer.find(params[:job_offer_id])
   end
 
   def job_application_params

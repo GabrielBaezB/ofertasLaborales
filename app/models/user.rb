@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 50 }
   validates :email, presence: true, uniqueness: true
   validates :role, presence: true
-  validates :profile_picture, attached: true, content_type: ['image/jpg', 'image/gif', 'image/png', 'image/webp'],
-                              size: { less_than: 50.megabytes, message: 'is too large' }
+#   validates :profile_picture, attached: true, content_type: ['image/jpg', 'image/gif', 'image/png', 'image/webp'],
+#                               size: { less_than: 50.megabytes, message: 'is too large' }
                               
 end

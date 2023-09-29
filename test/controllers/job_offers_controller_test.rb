@@ -1,8 +1,11 @@
 require "test_helper"
 
 class JobOffersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @job_offer = job_offers(:one)
+    @user = users(:two)
+    @job_offer = job_offers(:three)
   end
 
   test "should get index" do

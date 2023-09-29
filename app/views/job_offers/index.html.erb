@@ -15,9 +15,9 @@
 
 <div id="job_offers">
   <% @job_offers.each do |job_offer| %>
-    <%= render job_offers %>
+    <%= render job_offer %>
     <p class="mt-4">
-      <%= link_to "Más Información sobre esta oferta", job_offers,id: "job_offers_#{job_offers.id}_link", class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to "Más Información sobre esta oferta", job_offer,id: "job_offers_#{job_offer.id}_link", class: "btn btn-sm btn-outline-primary" %>
     </p>
     <hr>
   <% end %>
